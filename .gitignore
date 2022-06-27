@@ -8,6 +8,9 @@ env
 myvenv/
 venv/
 
+#Requirements
+requirements.txt
+
 # Database
 db.sqlite3
 
