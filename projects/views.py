@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -18,7 +19,7 @@ def project(request, pk):
 def project_test(request, pk, another_param):
     return HttpResponse("SINGLE PROJECT"+" "+ pk +" "+ another_param)
 
-
+@login_required(login_url="login")
 def createProject(request):
     form = ProjectForm()
     
@@ -31,7 +32,7 @@ def createProject(request):
     context = {'form': form}
     return render(request, 'projects/project_form.html', context)
 
-
+@login_required(login_url="login")
 def updateProject(request, pk):
     project = Project.objects.get(pk=pk)
     form = ProjectForm(instance=project)
@@ -44,7 +45,7 @@ def updateProject(request, pk):
     context = {'form': form}
     return render(request, 'projects/project_form.html', context)
 
-
+@login_required(login_url="login")
 def deleteProject(request, pk):
     project = Project.objects.get(pk=pk)
 
