@@ -15,7 +15,7 @@ class ProjectForm(ModelForm):
         '''
         Assign css class to the fields
         '''
-        super(ProjectForm, self).__init__()
+        super(ProjectForm, self).__init__(*args, **kwargs)
         # we select the title > go in the widgets > attributes 
         # and we want to update the spefific attribute
         #We told it to update the class and go ahead and
